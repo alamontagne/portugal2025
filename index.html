@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>My Portugal Adventure 2025</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icon.png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #ffcc00;
+            text-align: center;
+        }
+        .transit-info {
+            background-color: #2b2b2b;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .day {
+            margin: 10px 0;
+            border: 1px solid #444;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .day h2 {
+            cursor: pointer;
+            background-color: #333;
+            padding: 10px;
+            margin: 0;
+            color: #00ccff;
+            transition: background-color 0.3s;
+        }
+        .day h2:hover {
+            background-color: #444;
+        }
+        .content {
+            display: none;
+            padding: 15px;
+            background-color: #222;
+        }
+        .content.active {
+            display: block;
+        }
+        ul {
+            padding-left: 20px;
+            list-style: none;
+        }
+        li {
+            margin: 5px 0;
+            display: flex;
+            align-items: center;
+        }
+        input[type="checkbox"] {
+            margin-right: 10px;
+            accent-color: #ff6699;
+        }
+        strong {
+            color: #ff6699;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 204, 255, 0.5);
+            text-align: center;
+            max-width: 80%;
+            z-index: 1000;
+            animation: popupFadeIn 0.5s ease forwards;
+        }
+        .popup.show {
+            display: block;
+        }
+        .popup h3 {
+            color: #ffcc00;
+            margin: 0 0 10px;
+        }
+        .popup p {
+            margin: 0;
+            color: #ffffff;
+        }
+        .popup button {
+            background-color: #00ccff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        .popup button:hover {
+            background-color: #0099cc;
+        }
+        @keyframes popupFadeIn {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>My Portugal Adventure 2025</h1>
+    <p style="text-align: center;">Hi! This is your fun guide to Portugal, starting in Lisbon. Let’s explore! 🇵🇹</p>
+    <p style="text-align: center; color: #ffcc00;">Check off activities as you go—save me to your iPad!</p>
+
+    <!-- Transit Info Section -->
+    <div class="transit-info">
+        <h2>Getting Around 🚆</h2>
+        <p><strong>Train Stations in Lisbon:</strong></p>
+        <ul>
+            <li>Oriente: For Sintra or Algarve</li>
+            <li>Rossio: For Sintra, Óbidos, Nazaré</li>
+            <li>Cais do Sodré: For Belém, Estoril, Cascais</li>
+        </ul>
+        <p><strong>Tickets:</strong></p>
+        <ul>
+            <li>Viva Viagem Card: For buses, trams, metro (reloadable!)</li>
+            <li>Lisboa Card: Covers transit + entry to cool places (buy at Rossio Station, $42/72h)</li>
+            <li>Buy at: Green ABEP kiosk (bottom of Praça dos Restauradores)</li>
+        </ul>
+    </div>
+
+    <!-- Daily Itinerary -->
+    <div class="day" data-day="1">
+        <h2>Day 1: Monday, March 10 - Lisbon Fun Begins! 🏙️</h2>
+        <div class="content">
+            <p><strong>Where:</strong> Baixa District & Chiado</p>
+            <ul>
+                <li><input type="checkbox" id="d1-1"> Take the Metro ($1.50) to Baixa</li>
+                <li><input type="checkbox" id="d1-2"> Check into Hotel Pestana Rua Augusta</li>
+                <li><input type="checkbox" id="d1-3"> Walk Rua Augusta (no cars allowed!)</li>
+                <li><input type="checkbox" id="d1-4"> Museu Núcleo Arqueológico (10 AM–6 PM, Mon-Sat)</li>
+                <li><input type="checkbox" id="d1-5"> Ride Elevador de Santa Justa (7:30 AM–9 PM) for a cool view! 🎡</li>
+                <li><input type="checkbox" id="d1-6"> See Museu Carmo (10 AM–6 PM, Mon-Sat) - old ruins!</li>
+                <li><input type="checkbox" id="d1-7"> Eat at Café Confeitaria Nacional 🍰</li>
+                <li><input type="checkbox" id="d1-8"> Walk Rossio Square & Praça dos Restauradores (big statue!)</li>
+                <li><input type="checkbox" id="d1-9"> Stroll Avenida da Liberdade</li>
+                <li><input type="checkbox" id="d1-10"> Chiado: National Museum of Contemporary Art (10 AM–6 PM, Tue-Sun)</li>
+                <li><input type="checkbox" id="d1-11"> Igreja de São Roque (1 hour, pretty church! ⛪)</li>
+                <li><input type="checkbox" id="d1-12"> Miradouro de São Pedro de Alcântara (awesome view)</li>
+                <li><input type="checkbox" id="d1-13"> Jardim do Príncipe Real (chill park)</li>
+                <li><input type="checkbox" id="d1-14"> Dinner at O Faia (Fado music, book ahead! 🎶)</li>
+                <li><input type="checkbox" id="d1-15"> Dessert at Alice Gelato 🍦</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="day" data-day="2">
+        <h2>Day 2: Tuesday, March 11 - Alfama Adventure! 🏰</h2>
+        <div class="content">
+            <p><strong>Where:</strong> Alfama & Parque das Nações</p>
+            <ul>
+                <li><input type="checkbox" id="d2-1"> Breakfast at Pastelaria Santo António ☕</li>
+                <li><input type="checkbox" id="d2-2"> Castelo de São Jorge (9 AM–9 PM, 1 hour) - castle views! 👑</li>
+                <li><input type="checkbox" id="d2-3"> Walk Alfama: São Vicente de Fora church (10 AM–6 PM, Tue-Sun)</li>
+                <li><input type="checkbox" id="d2-4"> Portas do Sol Square (pretty spot)</li>
+                <li><input type="checkbox" id="d2-5"> Sé Cathedral (10 AM–6 PM, Mon-Sat, free!)</li>
+                <li><input type="checkbox" id="d2-6"> Museu Nacional do Azulejo (tile museum, closed Mon)</li>
+                <li><input type="checkbox" id="d2-7"> Lunch: Chapitô à Mesa, A Baiuca, or Taberna Moderna</li>
+                <li><input type="checkbox" id="d2-8"> Buy 3-day Lisboa Card at Rossio Station</li>
+                <li><input type="checkbox" id="d2-9"> Red Line to Parque das Nações</li>
+                <li><input type="checkbox" id="d2-10"> Oceanário (2 hours, fish everywhere! 🐠)</li>
+                <li><input type="checkbox" id="d2-11"> Pavilion of Knowledge (science fun!)</li>
+                <li><input type="checkbox" id="d2-12"> Vasco da Gama Mall (shopping! 🛍️)</li>
+                <li><input type="checkbox" id="d2-13"> Dinner at Restaurante D’Bacalhau</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="day" data-day="3">
+        <h2>Day 3: Wednesday, March 12 - Belém Blast! ⛪</h2>
+        <div class="content">
+            <p><strong>Where:</strong> Belém District (Lisboa Card)</p>
+            <ul>
+                <li><input type="checkbox" id="d3-1"> Monument to the Discoveries (famous explorers!)</li>
+                <li><input type="checkbox" id="d3-2"> Belém Tower (10 AM–5:30 PM, Tue-Sun) - UNESCO site! 🌍</li>
+                <li><input type="checkbox" id="d3-3"> Eat at Pastéis de Belém (custard tarts, 8 AM–11 PM) 🍮</li>
+                <li><input type="checkbox" id="d3-4"> Lunch: A Padaria Portuguesa or Floresta de Belém</li>
+                <li><input type="checkbox" id="d3-5"> Praça do Império (big park)</li>
+                <li><input type="checkbox" id="d3-6"> Jerónimos Monastery (10 AM–5:30 PM, Tue-Sun, $10) - amazing building!</li>
+                <li><input type="checkbox" id="d3-7"> Palácio da Ajuda (fancy palace + garden)</li>
+                <li><input type="checkbox" id="d3-8"> Jardim Botânico da Ajuda (pretty plants 🌸)</li>
+                <li><input type="checkbox" id="d3-9"> Museu Nacional de Arte Antiga (10 AM–6 PM, Tue-Sun, 2 hours) - coffee by the river!</li>
+                <li><input type="checkbox" id="d3-10"> MAAT (11 AM–7 PM, Wed-Mon) - climb the roof for free!</li>
+                <li><input type="checkbox" id="d3-11"> LX Factory (cool shops, Ler Devagar bookshop 📚)</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="day" data-day="4">
+        <h2>Day 4: Thursday, March 13 - Sintra Magic! 🏰✨</h2>
+        <div class="content">
+            <p><strong>Where:</strong> Sintra (leave hotel at 7:30 AM)</p>
+            <ul>
+                <li><input type="checkbox" id="d4-1"> Take 8:30 AM train to Sintra (40 min, Lisboa Card)</li>
+                <li><input type="checkbox" id="d4-2"> Bus 434 to Palácio Nacional da Pena (9:30 AM–11:30 AM, 2 hours) - red & yellow palace!</li>
+                <li><input type="checkbox" id="d4-3"> Walk to Moorish Castle (11:30 AM–1 PM, 1.5 hours) - old fortress!</li>
+                <li><input type="checkbox" id="d4-4"> Lunch in town (1 PM–2 PM)</li>
+                <li><input type="checkbox" id="d4-5"> Quinta da Regaleira (2 PM–5 PM, 10 min walk) - secret gardens & well! 🌿</li>
+                <li><input type="checkbox" id="d4-6"> Palácio Nacional de Sintra (5 PM–6:30 PM, 1 hour) - town palace</li>
+                <li><input type="checkbox" id="d4-7"> Back to Lisbon by 6:30 PM train</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="day" data-day="5">
+        <h2>Day 5: Friday, March 14 - Cascais Coast! 🌊</h2>
+        <div class="content">
+            <p><strong>Where:</strong> Cascais & Nearby</p>
+            <ul>
+                <li><input type="checkbox" id="d5-1"> Train to Cascais (Cais do Sodré, Lisboa Card)</li>
+                <li><input type="checkbox" id="d5-2"> Santa Marta Lighthouse</li>
+                <li><input type="checkbox" id="d5-3"> Boca do Inferno (cave beaches, 1.5 km walk) 🏖️</li>
+                <li><input type="checkbox" id="d5-4"> Cabo da Roca (edge of Europe!)</li>
+                <li><input type="checkbox" id="d5-5"> Palácio de Monserrate (9 AM–7 PM, 1.5–2 hours) - bus 435 or taxi</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="day" data-day="6">
+        <h2>Day 6: Saturday, March 15 - Art & Parks! 🎨</h2>
+        <div class="content">
+            <p><strong>Where:</strong> Lisbon</p>
+            <ul>
+                <li><input type="checkbox" id="d6-1"> Calouste Gulbenkian Museum (Wed-Mon) - best art!</li>
+                <li><input type="checkbox" id="d6-2"> Avenida Novas: Shopping + Parque Eduardo VII view</li>
+                <li><input type="checkbox" id="d6-3"> Jardim Botânico (10 AM–5 PM) 🌳</li>
+                <li><input type="checkbox" id="d6-4"> Parque Eduardo VII (big park!)</li>
+                <li><input type="checkbox" id="d6-5"> Embaixada Mall (fancy shopping 🛍️)</li>
+                <li><input type="checkbox" id="d6-6"> Palácio Nacional de Queluz (train to Queluz-Belas, 1 km walk, Lisboa Card)</li>
+                <li><input type="checkbox" id="d6-7"> Dinner at Pink Street or Mercado de Ribeira</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="day" data-day="7">
+        <h2>Day 7: Sunday, March 16 - Relax & Explore! 🌳</h2>
+        <div class="content">
+            <p><strong>Where:</strong> Lisbon</p>
+            <ul>
+                <li><input type="checkbox" id="d7-1"> São Roque Church & Museum (9 AM–7 PM) ⛪</li>
+                <li><input type="checkbox" id="d7-2"> Jardim de São Pedro de Alcântara</li>
+                <li><input type="checkbox" id="d7-3"> Jardim Zoológico de Lisboa (zoo time! 🦒)</li>
+                <li><input type="checkbox" id="d7-4"> Fronteira Palace & Garden</li>
+                <li><input type="checkbox" id="d7-5"> LX Factory Farmers Market (9:30 AM–4 PM)</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="day" data-day="8">
+        <h2>Day 8: Monday, March 17 - Last Morning! ✈️</h2>
+        <div class="content">
+            <p><strong>Where:</strong> Lisbon (until noon)</p>
+            <ul>
+                <li><input type="checkbox" id="d8-1"> Breakfast at Café A Brasileira ☕</li>
+                <li><input type="checkbox" id="d8-2"> Lisbon Story Centre (opens 10 AM)</li>
+                <li><input type="checkbox" id="d8-3"> Shop: Avenida da Liberdade or Chiado (world’s oldest bookstore! 📚)</li>
+                <li><input type="checkbox" id="d8-4"> Museu Nacional do Azulejo (tile museum)</li>
+                <li><input type="checkbox" id="d8-5"> Head to the airport</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Popup Container -->
+    <div class="popup" id="completionPopup">
+        <h3></h3>
+        <p></p>
+        <button onclick="closePopup()">Got it!</button>
+    </div>
+
+    <script>
+        // Collapsible sections
+        document.querySelectorAll('.day h2').forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                content.classList.toggle('active');
+            });
+        });
+
+        // Load checkbox states from localStorage
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+            const savedState = localStorage.getItem(checkbox.id);
+            if (savedState === 'true') checkbox.checked = true;
+
+            checkbox.addEventListener('change', () => {
+                localStorage.setItem(checkbox.id, checkbox.checked);
+                checkDayCompletion(checkbox.closest('.day'));
+            });
+        });
+
+        // Check if a day is complete
+        function checkDayCompletion(dayElement) {
+            const dayNum = dayElement.dataset.day;
+            const checkboxes = dayElement.querySelectorAll('input[type="checkbox"]');
+            const allChecked = Array.from(checkboxes).every(cb => cb.checked);
+
+            if (allChecked) {
+                showPopup(dayNum);
+            }
+        }
+
+        // Popup messages
+        const dayMessages = {
+            1: "Amazing day! You completed Day 1. Get some rest and we’ll explore more tomorrow!",
+            2: "Wow, Day 2 done! You’re a Lisbon pro. Sleep tight for more fun!",
+            3: "Fantastic! Day 3 is complete. Relax and recharge for tomorrow!",
+            4: "Sintra magic conquered! Day 4 is done—rest up for the next adventure!",
+            5: "Cascais coast crushed it! Day 5 is over. Sweet dreams!",
+            6: "Art and parks nailed! Day 6 is finished—time to chill!",
+            7: "Super Sunday! Day 7 is complete. One more day to go—rest well!",
+            8: "You did it! You completed this amazing trip to Portugal! Now you get to go home to see Andy/Dad, Moses, and Zephyr! They love you and can’t wait to see you!"
+        };
+
+        // Show popup
+        function showPopup(dayNum) {
+            const popup = document.getElementById('completionPopup');
+            popup.querySelector('h3').textContent = `Day ${dayNum} Complete!`;
+            popup.querySelector('p').textContent = dayMessages[dayNum];
+            popup.classList.add('show');
+        }
+
+        // Close popup
+        function closePopup() {
+            const popup = document.getElementById('completionPopup');
+            popup.classList.remove('show');
+        }
+
+        // Service Worker registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(reg => console.log('Service Worker registered'))
+                    .catch(err => console.log('Service Worker registration failed:', err));
+            });
+        }
+    </script>
+</body>
+</html>
