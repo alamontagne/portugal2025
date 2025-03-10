@@ -1,9 +1,9 @@
 const CACHE_NAME = 'portugal-2025-cache-v1';
 const urlsToCache = [
-    '/',
-    '/index.html',
-    '/manifest.json',
-    '/icon.png'
+    '/portugal2025/',
+    '/portugal2025/index.html',
+    '/portugal2025/manifest.json',
+    '/portugal2025/icon.png'
 ];
 
 self.addEventListener('install', event => {
